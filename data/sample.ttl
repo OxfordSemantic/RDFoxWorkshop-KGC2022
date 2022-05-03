@@ -9,4 +9,4 @@
     :results_race :races\/123456789;
     :results_positionOrder "1"^^xsd:integer .
 
-:results\/123456789-b a :win .
+:results\/123456789-b a :wins .
