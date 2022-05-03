@@ -1,0 +1,22 @@
+PREFIX : <http://www.oxfordsemantic.tech/f1demo/>
+
+[?result1, :hasNextResult, ?result2] :-
+    [?result1, a, :results],
+    AGGREGATE(
+        [?result1, :results_driver, ?driver],
+        [?result1, :results_race, ?race1],
+        [?race1, :races_date, ?date1],
+        BIND(xsd:date(?date1) AS ?xsdDate1),
+        [?otherResult, a, :results],
+        [?otherResult, :results_driver, ?driver],
+        [?otherResult, :results_race, ?otherRace],
+        [?otherRace, a, :races_date, ?otherDate],
+        BIND(xsd:date(?otherDate) AS ?otherXsdDate),
+        FILTER(?xsdDate1 < ?otherXsdDate)
+    ON ?result1 BIND MIN(?otherXsdDate) AS ?minXsdDate
+    ),
+    [?result2, :results_race, ?race2],
+    [?race2, :races_date, ?date2],
+    FILTER(xsd:date(?date2) = ?minXsdDate) .
+
+    

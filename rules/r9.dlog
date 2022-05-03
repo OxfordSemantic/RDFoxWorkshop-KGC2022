@@ -1,0 +1,11 @@
+BASE <http://www.oxfordsemantic.tech/f1demo/>
+PREFIX : <http://www.oxfordsemantic.tech/f1demo/>
+
+[?newStreak, a, :streaks],
+[?newStreak, :hasLastResult, ?newWin],
+[?newStreak, :hasLength, ?newLength] :-
+    [?oldStreak, a, :streaks],
+    [?oldStreak, :hasLastResult, ?oldWin],
+    [?oldWin, :hasNextResult, ?newWin],
+    [?newWin, :results_positionOrder, 1],
+    BIND(IRI(CONCAT("streaks/", MD5(CONCAT(STR(?oldStreak), STR(?newWin))) )) AS ?newStreak) .

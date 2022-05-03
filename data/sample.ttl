@@ -1,0 +1,12 @@
+:drivers\/123456789 # does not belong to any class
+    :drivers_forename "John";
+    :drivers_surname "Smith" .
+
+:results\/123456789 a :results;
+    :results_driver :drivers\/123456789, :drivers\/1; # two drivers instead of one
+    :drivers_forename "John"; # not supposed to be here - this is a driver property
+    # missing constructor
+    :results_race :races\/123456789;
+    :results_positionOrder "1"^^xsd:integer .
+
+:results\/123456789-b a :win .

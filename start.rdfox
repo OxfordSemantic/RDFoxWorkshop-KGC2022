@@ -1,0 +1,140 @@
+# PREPARATION
+
+prefix : <http://www.oxfordsemantic.tech/f1demo/>
+set output out
+
+endpoint start
+
+dstore create f1
+active f1
+
+import data/upTo2020.ttl.zip
+import data/sample.ttl
+
+# AXIOM SET 1
+
+evaluate queries/q-a1.rq
+
+import > :myAxiomsGraph axioms/a1.ttl
+importaxioms :myAxiomsGraph
+
+evaluate queries/q-a1.rq
+
+# AXIOM SET 2
+
+evaluate queries/q-a2.rq
+
+import > :myAxiomsGraph axioms/a2.ttl
+importaxioms :myAxiomsGraph
+
+evaluate queries/q-a2.rq
+
+# AXIOM SET 3
+
+evaluate queries/q-a3.rq
+
+import > :myAxiomsGraph axioms/a3.ttl
+importaxioms :myAxiomsGraph
+
+evaluate queries/q-a3.rq
+
+# AXIOM SET 4
+
+evaluate queries/q-a4.rq
+
+import > :myAxiomsGraph axioms/a4.ttl
+importaxioms :myAxiomsGraph
+
+evaluate queries/q-a4.rq
+
+# AXIOM SET 5
+
+evaluate queries/q-a5.rq
+
+import > :myAxiomsGraph axioms/a5.ttl
+importaxioms :myAxiomsGraph
+
+evaluate queries/q-a5.rq
+
+# AXIOM SET 6
+
+evaluate queries/q-a6.rq
+
+import > :myAxiomsGraph axioms/a6.ttl
+importaxioms :myAxiomsGraph
+
+evaluate queries/q-a6.rq
+
+# CLEAR AXIOMS, REMOVE "SAMPLE" DATA
+
+importaxioms :myAxiomsGraph -
+info axioms
+
+import - data/sample.ttl
+
+# RULE 1
+
+evaluate queries/q-r1.rq
+
+import rules/r1.dlog
+
+evaluate queries/q-r1.rq
+
+# RULE 2
+
+evaluate queries/q-r2.rq
+
+import rules/r2.dlog
+
+evaluate queries/q-r2.rq
+
+# RULE 3
+
+evaluate queries/q-r3.rq
+
+import rules/r3.dlog
+
+evaluate queries/q-r3.rq
+
+# RULE 4
+
+evaluate queries/q-r4.rq
+
+import rules/r4.dlog
+
+evaluate queries/q-r4.rq
+
+# RULE 5
+
+evaluate queries/q-r5.rq
+
+import rules/r5.dlog
+
+evaluate queries/q-r5.rq
+
+# ADD MORE DATA
+
+evaluate queries/q-r5-extra.rq
+
+import data/2021-22.ttl
+
+evaluate queries/q-r5-extra.rq
+
+# RULE 6
+
+evaluate queries/q-r6.rq
+
+import rules/r6.dlog
+
+evaluate queries/q-r6.rq
+
+# RULES 7, 8, 9
+
+evaluate queries/q-r9.rq
+
+import rules/r7.dlog \
+    rules/r8.dlog \
+    rules/r9.dlog
+
+evaluate queries/q-r9.rq
+

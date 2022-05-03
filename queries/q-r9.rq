@@ -1,0 +1,10 @@
+PREFIX : <http://www.oxfordsemantic.tech/f1demo/>
+
+SELECT ?driver ?length ?date WHERE {
+    ?streak a :streaks;
+        :hasLength ?length;
+        :hasLastResult ?lastResult .
+    ?lastResult :results_driver ?driver;
+        :results_race ?race .
+    ?race :races_date ?date .
+} ORDER BY ?length

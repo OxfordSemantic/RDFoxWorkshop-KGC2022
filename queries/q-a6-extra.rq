@@ -1,0 +1,5 @@
+PREFIX : <http://www.oxfordsemantic.tech/f1demo/>
+
+SELECT ?p ?o WHERE {
+    :results\/123456789-b ?p ?o
+}
