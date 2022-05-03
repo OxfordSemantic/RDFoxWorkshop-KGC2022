@@ -100,7 +100,7 @@ evaluate queries/q-r3.rq
 
 evaluate queries/q-r4.rq
 
-import rules/r4.dlog
+import rules/r4-completed.dlog
 
 evaluate queries/q-r4.rq
 
@@ -124,7 +124,7 @@ evaluate queries/q-r5-extra.rq
 
 evaluate queries/q-r6.rq
 
-import rules/r6.dlog
+import rules/r6-completed.dlog
 
 evaluate queries/q-r6.rq
 
