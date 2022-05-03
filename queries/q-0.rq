@@ -1,0 +1,6 @@
+PREFIX : <http://www.oxfordsemantic.tech/f1demo/>
+
+SELECT ?s ?p ?o WHERE {
+    VALUES ?s { :drivers\/1 }
+    ?s ?p ?o
+}

@@ -5,6 +5,8 @@ PREFIX : <http://www.oxfordsemantic.tech/f1demo/>
 [?newStreak, :hasLastResult, ?newWin],
 [?newStreak, :hasLength, ?newLength] :-
     [?oldStreak, a, :streaks],
+    [?oldStreak, :hasLength, ?oldLength],
+    BIND(?oldLength + 1 AS ?newLength),
     [?oldStreak, :hasLastResult, ?oldWin],
     [?oldWin, :hasNextResult, ?newWin],
     [?newWin, :results_positionOrder, 1],

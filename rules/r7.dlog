@@ -10,13 +10,13 @@ PREFIX : <http://www.oxfordsemantic.tech/f1demo/>
         [?otherResult, a, :results],
         [?otherResult, :results_driver, ?driver],
         [?otherResult, :results_race, ?otherRace],
-        [?otherRace, a, :races_date, ?otherDate],
+        [?otherRace, :races_date, ?otherDate],
         BIND(xsd:date(?otherDate) AS ?otherXsdDate),
         FILTER(?xsdDate1 < ?otherXsdDate)
     ON ?result1 BIND MIN(?otherXsdDate) AS ?minXsdDate
     ),
+    [?result1, :results_driver, ?driver],
     [?result2, :results_race, ?race2],
+    [?result2, :results_driver, ?driver],
     [?race2, :races_date, ?date2],
     FILTER(xsd:date(?date2) = ?minXsdDate) .
-
-    

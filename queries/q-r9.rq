@@ -7,4 +7,4 @@ SELECT ?driver ?length ?date WHERE {
     ?lastResult :results_driver ?driver;
         :results_race ?race .
     ?race :races_date ?date .
-} ORDER BY ?length
+} ORDER BY DESC(?length) LIMIT 10
